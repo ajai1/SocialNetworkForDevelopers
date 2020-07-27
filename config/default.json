@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://ajai:ajai@devconnector.2b5lm.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "eeabddd944b5f39aaf12",
+  "githubSecret": "6814f601a72aa4de18275491c206c90a1fb80763"
 }
