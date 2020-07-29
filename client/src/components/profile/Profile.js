@@ -5,6 +5,7 @@ import ProfileTop from "./ProfileTop.js";
 import ProfileAbout from "./ProfileAbout.js";
 import ProfileExperience from "./ProfileExperience.js";
 import ProfileEducation from "./ProfileEducation.js";
+import ProfileGithub from "./ProfileGithub.js";
 import { connect } from "react-redux";
 import Spinner from "../Layout/Spinner";
 import { getProfileById } from "../../actions/profile";
@@ -71,6 +72,9 @@ const Profile = ({
                 <h4>No Education information</h4>
               )}
             </div>
+            {profile.githubusername && (
+              <ProfileGithub username={profile.githubusername}></ProfileGithub>
+            )}
           </div>
         </Fragment>
       )}
