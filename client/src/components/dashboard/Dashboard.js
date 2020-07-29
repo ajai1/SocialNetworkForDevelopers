@@ -17,7 +17,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   return loading && profile === null ? (
     <Spinner />
@@ -34,7 +34,7 @@ const Dashboard = ({
           <Education education={profile.education}></Education>
           <div className="my-2">
             <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-user-minus">Delete My Account</i>
+              <i className="fas fa-user-minus"> Delete My Account</i>
             </button>
           </div>
         </Fragment>
