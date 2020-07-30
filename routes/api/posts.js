@@ -179,7 +179,6 @@ router.post(
 // @access Private
 router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select("-password");
     const post = await Post.findById(req.params.id);
     //get the comment
     const comment = post.comments.find(
@@ -195,12 +194,16 @@ router.delete("/comment/:id/:comment_id", auth, async (req, res) => {
       return res.status(401).json({ msg: "User not authorized" });
     }
 
-    //get remove index
-    const removeIndex = post.comments
-      .map((comment) => comment.user.toString())
-      .indexOf(req.user.id);
+    // //get remove index
+    // const removeIndex = post.comments
+    //   .map((comment) => comment.user.toString())
+    //   .indexOf(req.user.id);
 
-    post.comments.splice(removeIndex, 1);
+    // post.comments.splice(removeIndex, 1);
+
+    post.comments = post.comments.filter(
+      ({ id }) => id !== req.params.comment_id
+    );
 
     await post.save();
     res.json(post.comments);

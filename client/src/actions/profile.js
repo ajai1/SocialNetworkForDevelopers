@@ -83,7 +83,7 @@ export const createProfile = (formData, history, edit = false) => async (
 ) => {
   try {
     const config = {
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
     };
